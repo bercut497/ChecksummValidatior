@@ -1,4 +1,4 @@
-﻿namespace ChecksummValidatior
+﻿namespace ChecksummValidator
 {
     public enum ValidationPersonEnum : int
     {
