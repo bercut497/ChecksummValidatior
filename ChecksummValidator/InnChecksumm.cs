@@ -62,12 +62,16 @@ namespace ChecksummValidator
 
         private static bool validate12(string value)
         {
+            //step 1
             var numbers = FactorNumbers.InnFactorNumbers
                             .Skip(1).Take(10).ToArray();
             if(!IsCheckSummValid(value,numbers,10))
                 return false;
 
-            throw new NotImplementedException();
+            //step 2
+            numbers = FactorNumbers.InnFactorNumbers
+                            .Skip(1).Take(11).ToArray();
+            return IsCheckSummValid(value,numbers,11);
         }
 
         private static bool IsCheckSummValid(string value, byte[] factorNumbers, int ChecksummDigitPosition){
