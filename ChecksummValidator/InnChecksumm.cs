@@ -33,28 +33,27 @@ namespace ChecksummValidator
 
             value = value.Trim();
             if (personEnum == ValidationPersonEnum.Undefined)
-            {
                 throw new ArgumentException(_rm.GetString("PersonEnumUndefined", currentCultureInfo), nameof(personEnum));
-            }
 
             if (string.IsNullOrWhiteSpace(value.Trim()))
-            {
                 return false;
-            }
 
-            if ((personEnum == ValidationPersonEnum.LegalEntity) && Regex.IsMatch(value, ValueCheckRegExp.inn10RegEx)) {
-                return validate10(value);
+            switch (personEnum) {
+                case ValidationPersonEnum.LegalEntity:
+                    return validate10(value);
+                case ValidationPersonEnum.NaturalPerson:
+                case ValidationPersonEnum.SelfEmployed:
+                    return validate12(value);
+                default:
+                    return false;
             }
-
-            if (Regex.IsMatch(value, ValueCheckRegExp.inn12RegEx))
-            {
-                return validate12(value);
-            }
-            return false;
         }
 
         private static bool validate10(string value)
         {
+            if (!Regex.IsMatch(value, ValueCheckRegExp.inn10RegEx))
+                return false;
+
             var numbers = FactorNumbers.InnFactorNumbers
                             .Skip(2).Take(9).ToArray();
             return IsCheckSummValid(value,numbers,9);
@@ -62,6 +61,9 @@ namespace ChecksummValidator
 
         private static bool validate12(string value)
         {
+            if (!Regex.IsMatch(value, ValueCheckRegExp.inn12RegEx))
+                return false;
+
             //step 1
             var numbers = FactorNumbers.InnFactorNumbers
                             .Skip(1).Take(10).ToArray();
@@ -69,8 +71,7 @@ namespace ChecksummValidator
                 return false;
 
             //step 2
-            numbers = FactorNumbers.InnFactorNumbers
-                            .Skip(1).Take(11).ToArray();
+            numbers = FactorNumbers.InnFactorNumbers;
             return IsCheckSummValid(value,numbers,11);
         }
 
@@ -87,7 +88,7 @@ namespace ChecksummValidator
                 var digit = value[i].ToString();
                 realCheckSumm += int.Parse(digit)*factorNumbers[i];
             }
-            
+            realCheckSumm = realCheckSumm % 11;
             return realCheckSumm == expectedCheckSumm;
         }
     }

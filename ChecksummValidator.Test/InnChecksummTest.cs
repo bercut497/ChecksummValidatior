@@ -1,58 +1,103 @@
-using System;
 using Xunit;
-using ChecksummValidator;
 
 namespace ChecksummValidator.Test
 {
-    public class InnChecksummTest: IDisposable
+    public class InnChecksummTest
     {
+        #region LegalEntity
+
+        [Theory]
+        [InlineData(TestData.VALIDINN10_LONG)]
+        [InlineData(TestData.VALIDINN10_STRING)]
+        public void TestValidLegalEntity(object Value)
+        {
+            var msg = $"{Value} is valid value for LegalEntity";
+            Assert.True(InnCheckSumm.isValid(Value, ValidationPersonEnum.LegalEntity), msg);
+        }
 
         [Theory]
         [InlineData(TestData.VALIDINN12_LONG)]
         [InlineData(TestData.VALIDINN12_STRING)]
-        public void TestValidInn12(object Value){
-            Assert.True(InnCheckSumm.isValid(Value, ValidationPersonEnum.LegalEntity));
+        [InlineData(TestData.INVALIDINN10_LONG)]
+        [InlineData(TestData.INVALIDINN10_STRING)]
+        [InlineData(TestData.INVALIDINN12_LONG)]
+        [InlineData(TestData.INVALIDINN12_STRING)]
+        [InlineData(TestData.EMPTYSTRING)]
+        [InlineData(TestData.SOMESTRING)]
+        [InlineData(TestData.MAXINT)]
+        [InlineData(TestData.MININT)]
+        [InlineData(TestData.NULLOBJECT)]
+        [InlineData(TestData.ZEROINT)]
+        public void TestInvalidLegalEntity(object Value)
+        {
+            var msg = $"{Value} is invalid value for LegalEntity";
+            Assert.False(InnCheckSumm.isValid(Value, ValidationPersonEnum.LegalEntity), msg);
         }
-/*
+
+        #endregion LegalEntity
+
+        #region NaturalPerson
+
         [Theory]
-        [InlineData]
-        public void TestInValidInn12(object data){
-
-        }
-*/
-        #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
-
-        protected virtual void Dispose(bool disposing)
+        [InlineData(TestData.VALIDINN12_LONG)]
+        [InlineData(TestData.VALIDINN12_STRING)]
+        public void TestValidNaturalPerson(object Value)
         {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    // TODO: dispose managed state (managed objects).
-                }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-                // TODO: set large fields to null.
-
-                disposedValue = true;
-            }
+            var msg = $"{Value} is valid value for NaturalPerson";
+            Assert.True(InnCheckSumm.isValid(Value, ValidationPersonEnum.NaturalPerson), msg);
         }
 
-        // TODO: override a finalizer only if Dispose(bool disposing) above has code to free unmanaged resources.
-        // ~InnChecksummTest() {
-        //   // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-        //   Dispose(false);
-        // }
-
-        // This code added to correctly implement the disposable pattern.
-        public void Dispose()
+        [Theory]
+        [InlineData(TestData.VALIDINN10_LONG)]
+        [InlineData(TestData.VALIDINN10_STRING)]
+        [InlineData(TestData.INVALIDINN10_LONG)]
+        [InlineData(TestData.INVALIDINN10_STRING)]
+        [InlineData(TestData.INVALIDINN12_LONG)]
+        [InlineData(TestData.INVALIDINN12_STRING)]
+        [InlineData(TestData.EMPTYSTRING)]
+        [InlineData(TestData.SOMESTRING)]
+        [InlineData(TestData.MAXINT)]
+        [InlineData(TestData.MININT)]
+        [InlineData(TestData.NULLOBJECT)]
+        [InlineData(TestData.ZEROINT)]
+        public void TestInvalidNaturalPerson(object Value)
         {
-            // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-            Dispose(true);
-            // TODO: uncomment the following line if the finalizer is overridden above.
-            // GC.SuppressFinalize(this);
+            var msg = $"{Value} is invalid value for NaturalPerson";
+            Assert.False(InnCheckSumm.isValid(Value, ValidationPersonEnum.NaturalPerson), msg);
         }
-        #endregion
+
+        #endregion NaturalPerson
+
+        #region SelfEmployed
+
+        [Theory]
+        [InlineData(TestData.VALIDINN12_LONG)]
+        [InlineData(TestData.VALIDINN12_STRING)]
+        public void TestValidSelfEmployed(object Value)
+        {
+            var msg = $"{Value} is valid value for NaturalPerson";
+            Assert.True(InnCheckSumm.isValid(Value, ValidationPersonEnum.SelfEmployed), msg);
+        }
+
+        [Theory]
+        [InlineData(TestData.VALIDINN10_LONG)]
+        [InlineData(TestData.VALIDINN10_STRING)]
+        [InlineData(TestData.INVALIDINN10_LONG)]
+        [InlineData(TestData.INVALIDINN10_STRING)]
+        [InlineData(TestData.INVALIDINN12_LONG)]
+        [InlineData(TestData.INVALIDINN12_STRING)]
+        [InlineData(TestData.EMPTYSTRING)]
+        [InlineData(TestData.SOMESTRING)]
+        [InlineData(TestData.MAXINT)]
+        [InlineData(TestData.MININT)]
+        [InlineData(TestData.NULLOBJECT)]
+        [InlineData(TestData.ZEROINT)]
+        public void TestInvalidSelfEmployed(object Value)
+        {
+            var msg = $"{Value} is invalid value for NaturalPerson";
+            Assert.False(InnCheckSumm.isValid(Value, ValidationPersonEnum.SelfEmployed), msg);
+        }
+
+        #endregion SelfEmployed
     }
 }
