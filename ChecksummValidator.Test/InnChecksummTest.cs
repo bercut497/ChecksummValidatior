@@ -1,9 +1,17 @@
+using ChecksummValidator.Enums;
+using System;
+using System.Globalization;
 using Xunit;
 
 namespace ChecksummValidator.Test
 {
     public class InnChecksummTest
     {
+        [Fact]
+        public void TestUdenfined() {
+            Assert.Throws<ArgumentException>(() => InnCheckSumm.IsValid(null, ValidationPersonEnum.Undefined,CultureInfo.InvariantCulture));
+        }
+
         #region LegalEntity
 
         [Theory]
@@ -12,7 +20,7 @@ namespace ChecksummValidator.Test
         public void TestValidLegalEntity(object Value)
         {
             var msg = $"{Value} is valid value for LegalEntity";
-            Assert.True(InnCheckSumm.isValid(Value, ValidationPersonEnum.LegalEntity), msg);
+            Assert.True(InnCheckSumm.IsValid(Value, ValidationPersonEnum.LegalEntity), msg);
         }
 
         [Theory]
@@ -31,7 +39,7 @@ namespace ChecksummValidator.Test
         public void TestInvalidLegalEntity(object Value)
         {
             var msg = $"{Value} is invalid value for LegalEntity";
-            Assert.False(InnCheckSumm.isValid(Value, ValidationPersonEnum.LegalEntity), msg);
+            Assert.False(InnCheckSumm.IsValid(Value, ValidationPersonEnum.LegalEntity), msg);
         }
 
         #endregion LegalEntity
@@ -44,7 +52,7 @@ namespace ChecksummValidator.Test
         public void TestValidNaturalPerson(object Value)
         {
             var msg = $"{Value} is valid value for NaturalPerson";
-            Assert.True(InnCheckSumm.isValid(Value, ValidationPersonEnum.NaturalPerson), msg);
+            Assert.True(InnCheckSumm.IsValid(Value, ValidationPersonEnum.NaturalPerson), msg);
         }
 
         [Theory]
@@ -63,7 +71,7 @@ namespace ChecksummValidator.Test
         public void TestInvalidNaturalPerson(object Value)
         {
             var msg = $"{Value} is invalid value for NaturalPerson";
-            Assert.False(InnCheckSumm.isValid(Value, ValidationPersonEnum.NaturalPerson), msg);
+            Assert.False(InnCheckSumm.IsValid(Value, ValidationPersonEnum.NaturalPerson), msg);
         }
 
         #endregion NaturalPerson
@@ -76,7 +84,7 @@ namespace ChecksummValidator.Test
         public void TestValidSelfEmployed(object Value)
         {
             var msg = $"{Value} is valid value for NaturalPerson";
-            Assert.True(InnCheckSumm.isValid(Value, ValidationPersonEnum.SelfEmployed), msg);
+            Assert.True(InnCheckSumm.IsValid(Value, ValidationPersonEnum.SelfEmployed), msg);
         }
 
         [Theory]
@@ -95,7 +103,7 @@ namespace ChecksummValidator.Test
         public void TestInvalidSelfEmployed(object Value)
         {
             var msg = $"{Value} is invalid value for NaturalPerson";
-            Assert.False(InnCheckSumm.isValid(Value, ValidationPersonEnum.SelfEmployed), msg);
+            Assert.False(InnCheckSumm.IsValid(Value, ValidationPersonEnum.SelfEmployed), msg);
         }
 
         #endregion SelfEmployed
