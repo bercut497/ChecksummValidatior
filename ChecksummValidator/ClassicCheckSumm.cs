@@ -6,7 +6,7 @@ namespace ChecksummValidator
 {
     internal class ClassicCheckSumm
     {
-        public static long Calculate(string value, uint shift)
+        public static long Calculate(string value, uint shift=0U)
         {
             if (string.IsNullOrEmpty(value))
             {

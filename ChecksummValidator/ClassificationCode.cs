@@ -57,33 +57,26 @@ namespace ChecksummValidator
             var regEx = GetRegEx(code);
             if (!regEx.IsMatch(value))
                 return false;
+            
+            var calculationStringLength = value.Length - 1;
+            var expectedCheckSumm = int.Parse(value[calculationStringLength].ToString());
+            var calculationString = value.Substring(0, calculationStringLength);
 
-            return IsCodeValid(value, cultureInfo);
+            var checksumm = CalculateCheckSumm(calculationString, false, cultureInfo);
+
+            if (checksumm == 10)
+                checksumm = CalculateCheckSumm(calculationString, true, cultureInfo);
+
+            if (checksumm == 10)
+                checksumm = 0;
+
+            return checksumm == expectedCheckSumm;
         }
 
         private static int CalculateCheckSumm(string value,bool shifted = false, CultureInfo cultureInfo = null) {
             var shift = shifted ? 2u : 0u;
             var checksumm = ClassicCheckSumm.Calculate(value, shift) % 11L;
             return (int)checksumm;
-        }
-
-        private static bool IsCodeValid(string value, CultureInfo cultureInfo = null)
-        {
-            if (string.IsNullOrEmpty(value))
-                return false;
-            if (!Regex.IsMatch(value, ValueCheckRegExp.numberRegEx))
-                return false;
-
-            var calculationStringLength = value.Length-1;
-            var expectedCheckSumm = int.Parse(value[calculationStringLength].ToString());
-            var calculationString = value.Substring(0, calculationStringLength);
-            var checksumm = CalculateCheckSumm(calculationString,false,cultureInfo);
-            if (checksumm == 10) 
-                checksumm = CalculateCheckSumm(calculationString, true, cultureInfo);
-
-            if (checksumm == 10)
-                checksumm = 0;
-            return checksumm == expectedCheckSumm;
         }
     }
 }

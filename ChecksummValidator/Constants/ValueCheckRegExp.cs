@@ -32,5 +32,7 @@
         public const string OkatoRegEx = @"^(\d{3}(\d{6}(\d{3})?)?)$";
         public const string OkpoRegEx = @"^(\d{8}(\d{2})?)$";
 
+        ////
+        public const string snils = @"^(\d{9})(\d{2})$";  
     }
 }
