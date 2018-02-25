@@ -81,10 +81,13 @@ namespace ChecksummValidator.Test
         public const long INVALIDOKPO_LONG = 47296612;
         public const string INVALIDOKPO_STRING = "47296612";
 
-        public const long VALIDOKATO_LONG = 563921;
-        public const string VALIDOKATO_STRING = "563921";
-        public const long INVALIDOKATO_LONG = 563922;
-        public const string INVALIDOKATO_STRING = "563922";
+        public const string VALIDOKATO3_STRING = "624";
+        public const string VALIDOKATO3_LONG = "816";
+
+        public const long VALIDOKATO_LONG = 654800005;
+        public const string VALIDOKATO_STRING = "654800005";
+        public const long INVALIDOKATO_LONG = 654800000;
+        public const string INVALIDOKATO_STRING = "654800001";
 
         #endregion ClassificationCode
     }

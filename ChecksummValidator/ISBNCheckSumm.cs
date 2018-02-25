@@ -67,7 +67,7 @@ namespace ChecksummValidator
                 return false;
 
             if (typeEnum == ISBNTypeEnum.ISBN13)
-                return BarCodeCheckSumm.IsValid(value, BarcodeTypeEnum.EAN13, currentCultureInfo);
+                return BarCodeCheckSumm.IsValid(value, BarcodeTypeEnum.EAN13, cultureInfo);
 
             int currentCheckSumm = 0;
             var len = value.Length;
