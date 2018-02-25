@@ -26,12 +26,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>BarCodeCheckSumm.ru-RU.resx</DependentUpon>
     </Compile>
+
+    <Compile Update="Resources\ISBNCheckSumm.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ISBNCheckSumm.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\ISBNCheckSumm.ru-RU.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ISBNCheckSumm.ru-RU.resx</DependentUpon>
+    </Compile>
+
     <Compile Update="Resources\OgrnCheckSumm.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>OgrnCheckSumm.resx</DependentUpon>
     </Compile>
-
     <Compile Update="Resources\OgrnCheckSumm.ru-RU.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -56,6 +67,14 @@
     <EmbeddedResource Update="Resources\BarCodeCheckSumm.ru-RU.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BarCodeCheckSumm.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ISBNCheckSumm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ISBNCheckSumm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\ISBNCheckSumm.ru-RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ISBNCheckSumm.ru-RU.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\OgrnCheckSumm.resx">
       <Generator>ResXFileCodeGenerator</Generator>

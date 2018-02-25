@@ -57,6 +57,19 @@ namespace ChecksummValidator.Resources
             }
         }
 
+        private ResourceManager GetISBNCheckSummManager(CultureInfo culture = null) {
+            var cultureInfo = culture ?? CultureInfo.CurrentCulture;
+
+            var name = cultureInfo.Name.ToUpperInvariant();
+            switch (name)
+            {
+                case "RU-RU":
+                    return ISBNCheckSumm_ru_RU.ResourceManager;
+
+                default:
+                    return ISBNCheckSumm.ResourceManager;
+            }
+        }
 
         public RManager(string className, CultureInfo culture = null)
         {
