@@ -1,11 +1,14 @@
-﻿using ChecksummValidator.Enums;
-using ChecksummValidator.Resources;
+﻿
 using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace ChecksummValidator
 {
+    using Constants;
+    using Enums;
+    using Resources;
+
     public static class BarCodeCheckSumm
     {
         private static CultureInfo GetCultureInfo(CultureInfo CultureInfo)
@@ -83,9 +86,10 @@ namespace ChecksummValidator
         {
             var currentCultureInfo = GetCultureInfo(cultureInfo);
 
+            var resManager = RManager.GetManager(nameof(BarCodeCheckSumm),currentCultureInfo);
             if (typeEnum == BarcodeTypeEnum.Undefined)
             {
-                var message = RManager.GetBarCodeCheckSummManager(currentCultureInfo).GetString("TypeEnumUndefined");
+                var message = resManager.GetString("TypeEnumUndefined");
                 throw new ArgumentException(message, nameof(typeEnum));
             }
             if (value == null)

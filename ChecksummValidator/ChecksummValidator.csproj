@@ -15,6 +15,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>InnCheckSumm.ru-RU.resx</DependentUpon>
     </Compile>
+	
+    <Compile Update="Resources\BarCodeCheckSumm.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BarCodeCheckSumm.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\BarCodeCheckSumm.ru-RU.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BarCodeCheckSumm.ru-RU.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +36,14 @@
     <EmbeddedResource Update="Resources\InnCheckSumm.ru-RU.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>InnCheckSumm.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\BarCodeCheckSumm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BarCodeCheckSumm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\BarCodeCheckSumm.ru-RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BarCodeCheckSumm.ru-RU.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 
