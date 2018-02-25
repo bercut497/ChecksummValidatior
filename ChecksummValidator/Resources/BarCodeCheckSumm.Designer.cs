@@ -22,14 +22,14 @@ namespace ChecksummValidator.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class BarCodeCheckSumm_ru_RU_Resources {
+    internal class BarCodeCheckSumm {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal BarCodeCheckSumm_ru_RU_Resources() {
+        internal BarCodeCheckSumm() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ChecksummValidator.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChecksummValidator.Resources.BarCodeCheckSumm.ru-RU.Resources", typeof(BarCodeCheckSumm_ru_RU_Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChecksummValidator.Resources.BarCodeCheckSumm", typeof(BarCodeCheckSumm).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace ChecksummValidator.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на параметр TypeEnum не задан.
+        ///   Ищет локализованную строку, похожую на parameter TypeEnum is undefined.
         /// </summary>
         internal static string TypeEnumUndefined {
             get {
