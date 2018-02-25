@@ -11,9 +11,6 @@ namespace ChecksummValidator
 
     public static class InnCheckSumm
     {
-        private static CultureInfo GetCultureInfo(CultureInfo CultureInfo)
-            => CultureInfo ?? CultureInfo.CurrentCulture;
-
         public static bool IsValid(object value, ValidationPersonEnum personEnum, CultureInfo cultureInfo = null)
         {
             if (value == null)
@@ -29,8 +26,8 @@ namespace ChecksummValidator
 
         public static bool IsValid(string value, ValidationPersonEnum personEnum, CultureInfo cultureInfo = null)
         {
-            var currentCultureInfo = GetCultureInfo(cultureInfo);
-            var ResManager = RManager.GetManager(nameof(InnCheckSumm),currentCultureInfo);
+            var currentCultureInfo = cultureInfo ?? CultureInfo.CurrentCulture;
+            var ResManager = RManager.GetManager(nameof(InnCheckSumm), currentCultureInfo);
 
             if (personEnum == ValidationPersonEnum.Undefined)
             {
@@ -87,10 +84,13 @@ namespace ChecksummValidator
         {
             if (string.IsNullOrWhiteSpace(value))
                 return false;
-            if (!Regex.IsMatch(value, ValueCheckRegExp.innAllRegEx))
+            if (!Regex.IsMatch(value, ValueCheckRegExp.numberRegEx))
                 return false;
             if (value.Length < ChecksummDigitPosition)
                 return false;
+            if (factorNumbers.Length < ChecksummDigitPosition - 1)
+                return false;
+
             var expectedCheckSumm = int.Parse(value[ChecksummDigitPosition].ToString());
             int realCheckSumm = 0;
             for (var i = 0; i < ChecksummDigitPosition; i++)

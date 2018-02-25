@@ -39,7 +39,7 @@ namespace ChecksummValidator.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChecksummValidator.Resources.InnCheckSumm.ru-RU.resources", typeof(InnCheckSumm_ru_RU).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChecksummValidator.Resources.InnCheckSumm.ru-RU", typeof(InnCheckSumm_ru_RU).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

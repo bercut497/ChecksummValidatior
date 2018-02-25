@@ -1,11 +1,13 @@
-using ChecksummValidator.Enums;
 using System;
 using System.Globalization;
 using Xunit;
 
 namespace ChecksummValidator.Test
 {
-    public class InnChecksummTest
+    using ChecksummValidator;
+    using ChecksummValidator.Enums;
+
+    public class InnCheckSummTest
     {
         [Fact]
         public void TestUdenfined() {
@@ -83,7 +85,7 @@ namespace ChecksummValidator.Test
         [InlineData(TestData.VALIDINN12_STRING)]
         public void TestValidSelfEmployed(object Value)
         {
-            var msg = $"{Value} is valid value for NaturalPerson";
+            var msg = $"{Value} is valid value for SelfEmployed";
             Assert.True(InnCheckSumm.IsValid(Value, ValidationPersonEnum.SelfEmployed), msg);
         }
 
@@ -102,7 +104,7 @@ namespace ChecksummValidator.Test
         [InlineData(TestData.ZEROINT)]
         public void TestInvalidSelfEmployed(object Value)
         {
-            var msg = $"{Value} is invalid value for NaturalPerson";
+            var msg = $"{Value} is invalid value for SelfEmployed";
             Assert.False(InnCheckSumm.IsValid(Value, ValidationPersonEnum.SelfEmployed), msg);
         }
 
