@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
@@ -66,6 +65,10 @@ namespace ChecksummValidator
             }
         }
 
+        private static RManager ResManager(CultureInfo cultureInfo) => (cultureInfo == null)
+            ? RManager.GetManager(nameof(BarCodeCheckSumm), CultureInfo.CurrentCulture)
+            : RManager.GetManager(nameof(BarCodeCheckSumm), cultureInfo);
+
         public static bool IsValid(object value, BarcodeTypeEnum typeEnum, CultureInfo cultureInfo = null)
         {
             if (value == null)
@@ -81,12 +84,9 @@ namespace ChecksummValidator
 
         public static bool IsValid(string value, BarcodeTypeEnum typeEnum, CultureInfo cultureInfo = null)
         {
-            var currentCultureInfo = cultureInfo ?? CultureInfo.CurrentCulture;
-
-            var resManager = RManager.GetManager(nameof(BarCodeCheckSumm),currentCultureInfo);
             if (typeEnum == BarcodeTypeEnum.Undefined)
             {
-                var message = resManager.GetString("TypeEnumUndefined");
+                var message = ResManager(cultureInfo).GetString("TypeEnumUndefined");
                 throw new ArgumentException(message, nameof(typeEnum));
             }
             if (value == null)
