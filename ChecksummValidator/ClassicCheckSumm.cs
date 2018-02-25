@@ -6,7 +6,7 @@ namespace ChecksummValidator
 {
     internal class ClassicCheckSumm
     {
-        public static long Calculate(string value, uint shift=0U)
+        public static long Calculate(string value, uint shift = 0U, bool inverse = false)
         {
             if (string.IsNullOrEmpty(value))
             {
@@ -31,6 +31,9 @@ namespace ChecksummValidator
                 digit = int.Parse(number);
 
                 factor = ((i + shift) % 10) + 1;
+                if (inverse)
+                    factor = 10 - factor;
+
                 checksumm += digit * factor;
             }
             return checksumm;
