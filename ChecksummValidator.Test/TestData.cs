@@ -74,5 +74,18 @@ namespace ChecksummValidator.Test
         public const string INVALIDISBN13_STRING = "978-5-91678-295-1";
 
         #endregion ISBN
+
+        #region ClassificationCode
+        public const long VALIDOKPO_LONG = 47296611;
+        public const string VALIDOKPO_STRING = "47296611";
+        public const long INVALIDOKPO_LONG = 47296612;
+        public const string INVALIDOKPO_STRING = "47296612";
+
+        public const long VALIDOKATO_LONG = 563921;
+        public const string VALIDOKATO_STRING = "563921";
+        public const long INVALIDOKATO_LONG = 563922;
+        public const string INVALIDOKATO_STRING = "563922";
+
+        #endregion ClassificationCode
     }
 }
