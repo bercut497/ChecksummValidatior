@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace ChecksummValidator
 {
-    using ChecksummValidator.Enums;
     using ChecksummValidator.Constants;
+    using ChecksummValidator.Enums;
     using ChecksummValidator.Resources;
 
     public static class OgrnCheckSumm
@@ -51,6 +50,7 @@ namespace ChecksummValidator
             {
                 case ValidationPersonEnum.LegalEntity:
                     return Validate13(value);
+
                 case ValidationPersonEnum.SelfEmployed:
                     return Validate15(value);
 

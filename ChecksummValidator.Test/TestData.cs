@@ -43,6 +43,7 @@ namespace ChecksummValidator.Test
         #endregion Bar code data
 
         #region ogrn data
+
         public const long VALIDOGRN_LONG = 1037739010891;
         public const string VALIDOGRN_STRING = "1037739010891";
         public const long INVALIDOGRN_LONG = 1037739010890;
@@ -52,6 +53,26 @@ namespace ChecksummValidator.Test
         public const string VALIDOGRNIP_STRING = "304500116000157";
         public const long INVALIDOGRNIP_LONG = 304500116000150;
         public const string INVALIDOGRNIP_STRING = "304500116000150";
-        #endregion
+
+        #endregion ogrn data
+
+        #region ISBN
+
+        public const long VALIDISSN_LONG = 20493630;
+        public const string VALIDISSN_STRING = "0033-765X";
+        public const long INVALIDISSN_LONG = 20493631;
+        public const string INVALIDISSN_STRING = "0033-765Z";
+
+        public const long VALIDISBN10_LONG = 5932860057;
+        public const string VALIDISBN10_STRING = "0-446-52087-X";
+        public const long INVALIDISBN10_LONG = 5932860050;
+        public const string INVALIDISBN10_STRING = "0-446-52087-D";
+
+        public const long VALIDISBN13_LONG = 9785916782950;
+        public const string VALIDISBN13_STRING = "978-5-91678-295-0";
+        public const long INVALIDISBN13_LONG = 9785916782951;
+        public const string INVALIDISBN13_STRING = "978-5-91678-295-1";
+
+        #endregion ISBN
     }
 }
