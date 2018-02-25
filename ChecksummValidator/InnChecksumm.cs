@@ -11,6 +11,11 @@ namespace ChecksummValidator
 
     public static class InnCheckSumm
     {
+        private static RManager ResManager(CultureInfo cultureInfo) => (cultureInfo == null)
+    ? RManager.GetManager(nameof(InnCheckSumm), CultureInfo.CurrentCulture)
+    : RManager.GetManager(nameof(InnCheckSumm), cultureInfo);
+
+
         public static bool IsValid(object value, ValidationPersonEnum personEnum, CultureInfo cultureInfo = null)
         {
             if (value == null)
@@ -26,12 +31,9 @@ namespace ChecksummValidator
 
         public static bool IsValid(string value, ValidationPersonEnum personEnum, CultureInfo cultureInfo = null)
         {
-            var currentCultureInfo = cultureInfo ?? CultureInfo.CurrentCulture;
-            var ResManager = RManager.GetManager(nameof(InnCheckSumm), currentCultureInfo);
-
             if (personEnum == ValidationPersonEnum.Undefined)
             {
-                var message = ResManager.GetString("PersonEnumUndefined");
+                var message = ResManager(cultureInfo).GetString("PersonEnumUndefined");
                 throw new ArgumentException(message, nameof(personEnum));
             }
             if (value == null)
