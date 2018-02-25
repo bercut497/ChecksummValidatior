@@ -5,49 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\BarCodeCheckSumm.Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BarCodeCheckSumm.Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\BarCodeCheckSumm.ru-RU.Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BarCodeCheckSumm.ru-RU.Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\InnCheckSumm.resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>InnCheckSumm.resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\InnCheckSumm.ru-RU.resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>InnCheckSumm.ru-RU.resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <Compile Update="Resources\InnCheckSumm.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>InnCheckSumm.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\InnCheckSumm.ru-RU.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>InnCheckSumm.ru-RU.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Resources\BarCodeCheckSumm.Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>BarCodeCheckSumm.Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\BarCodeCheckSumm.ru-RU.Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>BarCodeCheckSumm.ru-RU.Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\InnCheckSumm.resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>InnCheckSumm.resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Resources\InnCheckSumm.ru-RU.resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>InnCheckSumm.ru-RU.resources.resx</DependentUpon>
-    </Compile>
+    <EmbeddedResource Update="Resources\InnCheckSumm.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InnCheckSumm.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\InnCheckSumm.ru-RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InnCheckSumm.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

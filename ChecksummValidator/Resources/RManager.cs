@@ -3,9 +3,17 @@ using System.Resources;
 
 namespace ChecksummValidator.Resources
 {
-    public static class RManager
+    public class RManager
     {
-        public static ResourceManager GetInnCheckSummManager(CultureInfo culture = null)
+        private readonly ResourceManager _mainResource;
+        private readonly ResourceManager _fallbackResource;
+
+        public string GetString(string key)
+            => _mainResource?.GetString(key) ?? _fallbackResource?.GetString(key) ?? key;
+
+        public string this[string key] => GetString(key);
+
+        private ResourceManager GetInnCheckSummManager(CultureInfo culture = null)
         {
             var cultureInfo = culture ?? CultureInfo.CurrentCulture;
 
@@ -13,26 +21,33 @@ namespace ChecksummValidator.Resources
             switch (name)
             {
                 case "RU-RU":
-                    return InnCheckSumm_ru_RU_resources.ResourceManager;
+                    return InnCheckSumm_ru_RU.ResourceManager;
 
                 default:
-                    return InnCheckSumm_resources.ResourceManager;
+                    return InnCheckSumm.ResourceManager;
             }
         }
 
-        public static ResourceManager GetBarCodeCheckSummManager(CultureInfo culture = null)
+        public RManager(string className, CultureInfo culture = null)
         {
             var cultureInfo = culture ?? CultureInfo.CurrentCulture;
 
-            var name = cultureInfo.Name.ToUpperInvariant();
-            switch (name)
+            switch (className)
             {
-                case "RU-RU":
-                    return BarCodeCheckSumm_ru_RU_Resources.ResourceManager;
-
+                case nameof(InnCheckSumm):
+                    _mainResource = GetInnCheckSummManager(cultureInfo);
+                    _fallbackResource = GetInnCheckSummManager(CultureInfo.InvariantCulture);
+                    break;
                 default:
-                    return BarCodeCheckSumm_Resources.ResourceManager;
+                    _mainResource = null;
+                    _fallbackResource = null;
+                    break;
             }
+        }
+
+        public static RManager GetManager(string callerClassName, CultureInfo culture = null)
+        {
+            return new RManager(callerClassName, culture);
         }
     }
 }

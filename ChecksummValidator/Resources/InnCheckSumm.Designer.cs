@@ -22,14 +22,14 @@ namespace ChecksummValidator.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class InnCheckSumm_resources {
+    internal class InnCheckSumm {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal InnCheckSumm_resources() {
+        internal InnCheckSumm() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ChecksummValidator.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChecksummValidator.Resources.InnCheckSumm.resources", typeof(InnCheckSumm_resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChecksummValidator.Resources.InnCheckSumm", typeof(InnCheckSumm).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

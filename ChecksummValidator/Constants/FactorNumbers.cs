@@ -1,4 +1,4 @@
-namespace ChecksummValidator
+namespace ChecksummValidator.Constants
 {
     internal static class FactorNumbers
     {

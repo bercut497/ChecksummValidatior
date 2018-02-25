@@ -1,12 +1,14 @@
-﻿using ChecksummValidator.Enums;
-using ChecksummValidator.Resources;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace ChecksummValidator
 {
+    using Constants;
+    using Enums;
+    using Resources;
+
     public static class InnCheckSumm
     {
         private static CultureInfo GetCultureInfo(CultureInfo CultureInfo)
@@ -28,10 +30,11 @@ namespace ChecksummValidator
         public static bool IsValid(string value, ValidationPersonEnum personEnum, CultureInfo cultureInfo = null)
         {
             var currentCultureInfo = GetCultureInfo(cultureInfo);
+            var ResManager = RManager.GetManager(nameof(InnCheckSumm),currentCultureInfo);
 
             if (personEnum == ValidationPersonEnum.Undefined)
             {
-                var message = RManager.GetInnCheckSummManager(currentCultureInfo).GetString("PersonEnumUndefined");
+                var message = ResManager.GetString("PersonEnumUndefined");
                 throw new ArgumentException(message, nameof(personEnum));
             }
             if (value == null)
@@ -43,18 +46,18 @@ namespace ChecksummValidator
             switch (personEnum)
             {
                 case ValidationPersonEnum.LegalEntity:
-                    return validate10(value);
+                    return Validate10(value);
 
                 case ValidationPersonEnum.NaturalPerson:
                 case ValidationPersonEnum.SelfEmployed:
-                    return validate12(value);
+                    return Validate12(value);
 
                 default:
                     return false;
             }
         }
 
-        private static bool validate10(string value)
+        private static bool Validate10(string value)
         {
             if (!Regex.IsMatch(value, ValueCheckRegExp.inn10RegEx))
                 return false;
@@ -64,7 +67,7 @@ namespace ChecksummValidator
             return IsCheckSummValid(value, numbers, 9);
         }
 
-        private static bool validate12(string value)
+        private static bool Validate12(string value)
         {
             if (!Regex.IsMatch(value, ValueCheckRegExp.inn12RegEx))
                 return false;
