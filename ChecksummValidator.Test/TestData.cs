@@ -90,5 +90,14 @@ namespace ChecksummValidator.Test
         public const string INVALIDOKATO_STRING = "654800001";
 
         #endregion ClassificationCode
+
+        #region SNILS
+
+        public const long VALIDSNILS_LONG = 11223344595;
+        public const string VALIDSNILS_STRING = "087-654-302 00";
+        public const long INVALIDSNILS_LONG = 11223344596;
+        public const string INVALIDSNILS_STRING = "087-654-302 10";
+
+        #endregion SNILS 
     }
 }
