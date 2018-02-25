@@ -26,5 +26,11 @@
         public const string issnRegEx = @"^\d{7}[0-9X]$";
         public const string isbn10RegEx = @"^\d{9}[0-9X]$";
         public const string isbn13RegEx = @"^97[89]\d{10}$";
+
+        ////
+
+        public const string OkatoRegEx = @"^(\d{3}(\d{3}(\d{3})?)?)$";
+        public const string OkpoRegEx = @"^(\d{8}(\d{2})?)$";
+
     }
 }
