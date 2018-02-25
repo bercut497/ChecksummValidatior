@@ -62,27 +62,9 @@ namespace ChecksummValidator
         }
 
         private static int CalculateCheckSumm(string value,bool shifted = false, CultureInfo cultureInfo = null) {
-            if (string.IsNullOrEmpty(value))
-            {
-                var msg = ResManager(cultureInfo)["CalculationNumberIsEmpty"];
-                throw new ArgumentException(msg, nameof(value));
-            }
-            if (!Regex.IsMatch(value, ValueCheckRegExp.numberRegEx))
-            {
-                var msg = ResManager(cultureInfo)["CalculationNumberValueIsNotNumeric"];
-                throw new ArgumentException("CalculationNumberValueIsNotNumeric", nameof(value));
-            }
-            var shift = shifted ? 2 : 0;
-
-            int checksumm = 0;
-            var len = value.Length;
-            for (var i = 0;i<len;i++) {
-                var v = value[i].ToString();
-                var digit = int.Parse(v);
-                var factor = ((i + shift) % 10) + 1;
-                checksumm += digit * factor;
-            }
-            return checksumm % 11;
+            var shift = shifted ? 2u : 0u;
+            var checksumm = ClassicCheckSumm.Calculate(value, shift) % 11L;
+            return (int)checksumm;
         }
 
         private static bool IsCodeValid(string value, CultureInfo cultureInfo = null)
