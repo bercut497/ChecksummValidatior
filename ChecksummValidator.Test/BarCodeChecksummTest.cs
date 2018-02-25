@@ -1,10 +1,12 @@
-using ChecksummValidator.Enums;
 using System;
 using System.Globalization;
 using Xunit;
 
 namespace ChecksummValidator.Test
 {
+    using ChecksummValidator;
+    using ChecksummValidator.Enums;
+
     public class BarCodeChecksummTest
     {
         [Fact]

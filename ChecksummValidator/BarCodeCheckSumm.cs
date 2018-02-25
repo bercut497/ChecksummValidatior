@@ -11,9 +11,6 @@ namespace ChecksummValidator
 
     public static class BarCodeCheckSumm
     {
-        private static CultureInfo GetCultureInfo(CultureInfo CultureInfo)
-            => CultureInfo ?? CultureInfo.CurrentCulture;
-
         private static byte[] GetFactorNumbers(int len)
         {
             if (len < 0)
@@ -65,7 +62,7 @@ namespace ChecksummValidator
                     return new Regex(ValueCheckRegExp.upc12RegEx, RegexOptions.CultureInvariant);
 
                 default:
-                    return new Regex(@"^\d+$", RegexOptions.CultureInvariant);
+                    return new Regex(ValueCheckRegExp.numberRegEx, RegexOptions.CultureInvariant);
             }
         }
 
@@ -84,7 +81,7 @@ namespace ChecksummValidator
 
         public static bool IsValid(string value, BarcodeTypeEnum typeEnum, CultureInfo cultureInfo = null)
         {
-            var currentCultureInfo = GetCultureInfo(cultureInfo);
+            var currentCultureInfo = cultureInfo ?? CultureInfo.CurrentCulture;
 
             var resManager = RManager.GetManager(nameof(BarCodeCheckSumm),currentCultureInfo);
             if (typeEnum == BarcodeTypeEnum.Undefined)

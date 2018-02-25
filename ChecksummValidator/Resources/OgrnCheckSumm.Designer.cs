@@ -22,14 +22,14 @@ namespace ChecksummValidator.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class BarCodeCheckSumm_ru_RU {
+    internal class OgrnCheckSumm {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal BarCodeCheckSumm_ru_RU() {
+        internal OgrnCheckSumm() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ChecksummValidator.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChecksummValidator.Resources.BarCodeCheckSumm.ru-RU", typeof(BarCodeCheckSumm_ru_RU).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ChecksummValidator.Resources.OgrnCheckSumm", typeof(OgrnCheckSumm).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,20 @@ namespace ChecksummValidator.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на параметр TypeEnum не задан.
+        ///   Ищет локализованную строку, похожую на PersonEnum is natural person.
         /// </summary>
-        internal static string TypeEnumUndefined {
+        internal static string PersonEnumIsNaturalPerson {
             get {
-                return ResourceManager.GetString("TypeEnumUndefined", resourceCulture);
+                return ResourceManager.GetString("PersonEnumIsNaturalPerson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на PersonEnum is undefined.
+        /// </summary>
+        internal static string PersonEnumUndefined {
+            get {
+                return ResourceManager.GetString("PersonEnumUndefined", resourceCulture);
             }
         }
     }

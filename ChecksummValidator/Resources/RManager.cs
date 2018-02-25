@@ -42,6 +42,22 @@ namespace ChecksummValidator.Resources
             }
         }
 
+        private ResourceManager GetOgrnCheckSummManager(CultureInfo culture = null)
+        {
+            var cultureInfo = culture ?? CultureInfo.CurrentCulture;
+
+            var name = cultureInfo.Name.ToUpperInvariant();
+            switch (name)
+            {
+                case "RU-RU":
+                    return OgrnCheckSumm_ru_RU.ResourceManager;
+
+                default:
+                    return OgrnCheckSumm.ResourceManager;
+            }
+        }
+
+
         public RManager(string className, CultureInfo culture = null)
         {
             var cultureInfo = culture ?? CultureInfo.CurrentCulture;
@@ -55,6 +71,10 @@ namespace ChecksummValidator.Resources
                 case nameof(BarCodeCheckSumm):
                     _mainResource = GetBarCodeCheckSummManager(cultureInfo);
                     _fallbackResource = GetBarCodeCheckSummManager(CultureInfo.InvariantCulture);
+                    break;
+                case nameof(OgrnCheckSumm):
+                    _mainResource = GetOgrnCheckSummManager(cultureInfo);
+                    _fallbackResource = GetOgrnCheckSummManager(CultureInfo.InvariantCulture);
                     break;
                 default:
                     _mainResource = null;

@@ -41,5 +41,17 @@ namespace ChecksummValidator.Test
         public const string INVALIDEAN13_STRING = "4600051000050";
 
         #endregion Bar code data
+
+        #region ogrn data
+        public const long VALIDOGRN_LONG = 1037739010891;
+        public const string VALIDOGRN_STRING = "1037739010891";
+        public const long INVALIDOGRN_LONG = 1037739010890;
+        public const string INVALIDOGRN_STRING = "1037739010890";
+
+        public const long VALIDOGRNIP_LONG = 304500116000157;
+        public const string VALIDOGRNIP_STRING = "304500116000157";
+        public const long INVALIDOGRNIP_LONG = 304500116000150;
+        public const string INVALIDOGRNIP_STRING = "304500116000150";
+        #endregion
     }
 }
