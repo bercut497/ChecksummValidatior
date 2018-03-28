@@ -14,7 +14,7 @@ namespace ChecksummValidator.Test
         [InlineData(ValidationPersonEnum.NaturalPerson)]
         public void TestValidationPersonEnum(ValidationPersonEnum person)
         {
-            Assert.Throws<ArgumentException>(() => OgrnCheckSumm.IsValid(null, person, CultureInfo.InvariantCulture));
+            Assert.Throws<ArgumentException>(() => OgrnCheckSumm.IsValid(null, person));
         }
 
         #region LegalEntity

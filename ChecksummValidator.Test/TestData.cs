@@ -99,5 +99,17 @@ namespace ChecksummValidator.Test
         public const string INVALIDSNILS_STRING = "087-654-302 10";
 
         #endregion SNILS 
+
+        #region Bank Number
+        public const string VALID_PAYMENTACCOUNT = "40702810638050013199";
+        public const string VALID_CORRESPONDENTACCOUNT = "30101810400000000225";
+        public const string VALID_BIK_STRING = "044525225";
+        public const int VALID_BIK_INT = 044525225;
+
+        public const string INVALID_PAYMENTACCOUNT = "40702810638050013190";
+        public const string INVALID_CORRESPONDENTACCOUNT = "30101810400000000220";
+        public const string INVALID_BIK_STRING = "944527225";
+        public const int INVALID_BIK_INT = 944527225;
+        #endregion
     }
 }

@@ -12,7 +12,7 @@ namespace ChecksummValidator.Test
         [Fact]
         public void TestUdenfined()
         {
-            Assert.Throws<ArgumentException>(() => ISBNCheckSumm.IsValid(null, ISBNTypeEnum.Undefined, CultureInfo.InvariantCulture));
+            Assert.Throws<ArgumentException>(() => ISBNCheckSumm.IsValid(null, ISBNTypeEnum.Undefined));
         }
 
         #region ISSN

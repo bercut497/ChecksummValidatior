@@ -12,7 +12,7 @@ namespace ChecksummValidator.Test
         [Fact]
         public void TestUdenfined()
         {
-            Assert.Throws<ArgumentException>(() => BarCodeCheckSumm.IsValid(null, BarcodeTypeEnum.Undefined, CultureInfo.InvariantCulture));
+            Assert.Throws<ArgumentException>(() => BarCodeCheckSumm.IsValid(null, BarcodeTypeEnum.Undefined));
         }
 
         #region EAN8

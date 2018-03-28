@@ -12,7 +12,7 @@ namespace ChecksummValidator.Test
         [Fact]
         public void TestClassificationCodeType()
         {
-            Assert.Throws<ArgumentException>(() => ClassificationCode.IsValid(null, ClassificationCodeType.Undefined, CultureInfo.InvariantCulture));
+            Assert.Throws<ArgumentException>(() => ClassificationCode.IsValid(null, ClassificationCodeType.Undefined));
         }
 
         #region OKATO

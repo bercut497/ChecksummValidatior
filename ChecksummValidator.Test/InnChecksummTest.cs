@@ -11,7 +11,7 @@ namespace ChecksummValidator.Test
     {
         [Fact]
         public void TestUdenfined() {
-            Assert.Throws<ArgumentException>(() => InnCheckSumm.IsValid(null, ValidationPersonEnum.Undefined,CultureInfo.InvariantCulture));
+            Assert.Throws<ArgumentException>(() => InnCheckSumm.IsValid(null, ValidationPersonEnum.Undefined));
         }
 
         #region LegalEntity
