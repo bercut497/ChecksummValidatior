@@ -1,21 +1,12 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace ChecksummValidator
 {
     using Constants;
-    using Enums;
-    using Resources;
 
     public static class SnilsCheckSumm
     {
-        private static RManager ResManager(CultureInfo cultureInfo) => (cultureInfo == null)
-    ? RManager.GetManager(nameof(ClassificationCode), CultureInfo.CurrentCulture)
-    : RManager.GetManager(nameof(ClassificationCode), cultureInfo);
-
-        public static bool IsValid(object value, CultureInfo cultureInfo = null)
+        public static bool IsValid(object value)
         {
             if (value == null)
                 return false;
@@ -25,10 +16,10 @@ namespace ChecksummValidator
             {
                 str = value.ToString();
             }
-            return IsValid(str, cultureInfo);
+            return IsValid(str);
         }
 
-        public static bool IsValid(string value, CultureInfo cultureInfo = null)
+        public static bool IsValid(string value)
         {
             if (value == null)
                 return false;
@@ -56,6 +47,5 @@ namespace ChecksummValidator
 
             return checksumm == expectedCheckSumm;
         }
-
     }
 }
