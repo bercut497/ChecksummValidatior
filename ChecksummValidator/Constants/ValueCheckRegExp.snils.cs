@@ -2,6 +2,6 @@
 {
     internal static partial class ValueCheckRegExp
     {
-        public const string numberRegEx = @"^\d+$";
+        public const string snils = @"^(\d{9})(\d{2})$";  
     }
 }
