@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace ChecksummValidator
 {
     using Constants;
     using Enums;
-    using Resources;
 
     public static class ISBNCheckSumm
     {
-        private static RManager ResManager(CultureInfo cultureInfo) => (cultureInfo == null)
-    ? RManager.GetManager(nameof(ISBNCheckSumm), CultureInfo.CurrentCulture)
-    : RManager.GetManager(nameof(ISBNCheckSumm), cultureInfo);
-
         private static Regex getRegex(ISBNTypeEnum typeEnum)
         {
             switch (typeEnum)
@@ -32,7 +26,7 @@ namespace ChecksummValidator
             }
         }
 
-        public static bool IsValid(object value, ISBNTypeEnum typeEnum, CultureInfo cultureInfo = null)
+        public static bool IsValid(object value, ISBNTypeEnum typeEnum)
         {
             if (value == null)
                 return false;
@@ -42,15 +36,14 @@ namespace ChecksummValidator
             {
                 str = value.ToString();
             }
-            return IsValid(str, typeEnum, cultureInfo);
+            return IsValid(str, typeEnum);
         }
 
-        public static bool IsValid(string value, ISBNTypeEnum typeEnum, CultureInfo cultureInfo = null)
+        public static bool IsValid(string value, ISBNTypeEnum typeEnum)
         {
             if (typeEnum == ISBNTypeEnum.Undefined)
             {
-                var message = ResManager(cultureInfo).GetString("ISBNTypeEnum");
-                throw new ArgumentException(message, nameof(typeEnum));
+                throw new ArgumentException("ISBNTypeEnum", nameof(typeEnum));
             }
             if (value == null)
                 return false;
@@ -67,7 +60,7 @@ namespace ChecksummValidator
                 return false;
 
             if (typeEnum == ISBNTypeEnum.ISBN13)
-                return BarCodeCheckSumm.IsValid(value, BarcodeTypeEnum.EAN13, cultureInfo);
+                return BarCodeCheckSumm.IsValid(value, BarcodeTypeEnum.EAN13);
 
             int currentCheckSumm = 0;
             var len = value.Length;
@@ -77,7 +70,7 @@ namespace ChecksummValidator
             {
                 c = value[i];
                 digit = (c == 'X') ? 10 : int.Parse(c.ToString());
-                currentCheckSumm += digit * (len-i);
+                currentCheckSumm += digit * (len - i);
             }
             currentCheckSumm = currentCheckSumm % 11;
 

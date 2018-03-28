@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -7,16 +6,10 @@ namespace ChecksummValidator
 {
     using Constants;
     using Enums;
-    using Resources;
 
     public static class InnCheckSumm
     {
-        private static RManager ResManager(CultureInfo cultureInfo) => (cultureInfo == null)
-    ? RManager.GetManager(nameof(InnCheckSumm), CultureInfo.CurrentCulture)
-    : RManager.GetManager(nameof(InnCheckSumm), cultureInfo);
-
-
-        public static bool IsValid(object value, ValidationPersonEnum personEnum, CultureInfo cultureInfo = null)
+        public static bool IsValid(object value, ValidationPersonEnum personEnum)
         {
             if (value == null)
                 return false;
@@ -26,15 +19,14 @@ namespace ChecksummValidator
             {
                 str = value.ToString();
             }
-            return IsValid(str, personEnum, cultureInfo);
+            return IsValid(str, personEnum);
         }
 
-        public static bool IsValid(string value, ValidationPersonEnum personEnum, CultureInfo cultureInfo = null)
+        public static bool IsValid(string value, ValidationPersonEnum personEnum)
         {
             if (personEnum == ValidationPersonEnum.Undefined)
             {
-                var message = ResManager(cultureInfo).GetString("PersonEnumUndefined");
-                throw new ArgumentException(message, nameof(personEnum));
+                throw new ArgumentException("PersonEnumUndefined", nameof(personEnum));
             }
             if (value == null)
                 return false;
